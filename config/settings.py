@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-lx0u%_)@h#ddjcj4_h=23p+&i!=j!%02s@4=p(%se9m3w!*m)^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -127,3 +127,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = 'visitors_list'
+LOGOUT_REDIRECT_URL = 'visitors_list'

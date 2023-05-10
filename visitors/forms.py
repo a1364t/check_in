@@ -6,3 +6,4 @@ class VisitorForm(forms.ModelForm):
     class Meta:
         model = Visitor
         fields = ['name', 'family', 'mobile']
+        exclude = []

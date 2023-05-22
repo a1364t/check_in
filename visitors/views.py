@@ -11,8 +11,8 @@ class VisitorListView(generic.ListView):
     template_name = 'visitors/visitors_list.html'
     context_object_name = 'visitors_list'
 
-    # def get_queryset(self):
-    #     return Visitor.objects.all().order_by('-datetime_checkin')
+    def get_queryset(self):
+        return Visitor.objects.all().order_by('-datetime_checkin')
 
 
 class VisitorDetailView(generic.DetailView):
@@ -23,9 +23,9 @@ class VisitorDetailView(generic.DetailView):
 
 
 class VisitorCreateView(generic.CreateView):
-    model = VisitorForm
-    fields = ['name', 'family', 'mobile']
+    form_class = VisitorForm
     template_name = 'visitors/visitor_create.html'
+    success_url = reverse_lazy('visitors_list')
 
 
 class VisitorUpdateView(generic.UpdateView):

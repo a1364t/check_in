@@ -16,4 +16,4 @@ def __str__(self):
 
 
 def get_absolute_url(self):
-    return reverse('visitor_detail', args=[self.id])
+    return reverse('visitors_list')

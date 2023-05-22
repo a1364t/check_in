@@ -12,11 +12,12 @@ visitor List
             <div class="card shadow-sm my-3">
                 <div class="card-body">
                     <h5 class="card-title">{{ visitor.name }} {{ visitor.family }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted small py-2">{{ visitor.datetime_checkin }}</h6>
-                    <p class="card-text py-3">
-                        Mobile: {{ visitor.mobile }}
-                    </p>
-                    <a href="{% url 'visitor_detail' visitor.id %}" class="btn btn-sm btn-success">Read More</a>
+                    <h6 class="card-subtitle mb-2 text-muted small py-2">Check-in: {{ visitor.datetime_checkin }}
+                    </h6>
+                    <h6 class="card-subtitle mb-2 text-muted small py-2">Check-out: {{ visitor.datetime_checkout }}
+                    </h6>
+                    <p class="card-text py-3"></p>
+                    <a href="{% url 'visitor_detail' visitor.id %}" class="btn btn-sm btn-success">Check Out</a>
 
                 </div>
             </div>
@@ -25,10 +26,9 @@ visitor List
         <div class="col-3">
 
             <div class="card my-4">
-                <h5 class="card-header">About</h5>
+                <h5 class="card-header">Glory Global Solution</h5>
                 <div class="card-body">
-                    <p class="card-text">We love python and django. So we created a blog site to share our
-                        thoughts</p>
+                    <p class="card-text">Confidence Enabled</p>
                     <a href="#" class="btn btn-sm btn-danger">
                         More...
                     </a>

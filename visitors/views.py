@@ -31,6 +31,7 @@ class VisitorCreateView(generic.CreateView):
 class VisitorUpdateView(generic.UpdateView):
     form_class = VisitorForm
     template_name = 'visitors/visitor_create.html'
+    success_url = reverse_lazy('visitors_list')
     model = Visitor
 
 

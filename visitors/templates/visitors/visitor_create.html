@@ -1,7 +1,7 @@
 {% extends '_base.html' %}
 
 {% block page_title %}
-Add New Post
+Add New Visitor
 {% endblock page_title %}
 
 {% block content %}
@@ -9,7 +9,7 @@ Add New Post
     <div class="row">
         <div class="col-9">
             <div class="card shadow my-3 p-5">
-                <h3>Add new Post:</h3>
+                <h3>Please Enter Your Detail</h3>
                 <form method="POST">
                     {% csrf_token %}
                     <table>
@@ -21,10 +21,9 @@ Add New Post
         </div>
         <div class="col-3">
             <div class="card my-4">
-                <h5 class="card-header">About</h5>
+                <h5 class="card-header">Glory Global Solution</h5>
                 <div class="card-body">
-                    <p class="card-text">We love python and django. So we created a blog site to share our
-                        thoughts</p>
+                    <p class="card-text">Confidence Enabled</p>
                     <a href="#" class="btn btn-sm btn-danger">
                         More...
                     </a>

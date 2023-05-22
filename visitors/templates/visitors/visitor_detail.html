@@ -9,39 +9,21 @@ visitor Detail
     <div class="row">
         <div class="col-9">
             <div class="card shadow my-3 p-5">
-                <h1>{{ visitor.name }}</h1>
-                <p class="small text-muted mt-2">By: {{ visitor.family }}</p>
-                <p class="mt-2">{{ visitor.mobile }}</p>
+                <h3>{{ visitor.name }} {{ visitor.family }}</h3>
+                <p class="mt-2"></p>
                 <div>
                     <a href="{% url 'visitor_update' visitor.id %}" class="btn btn-sm btn-info">Edit</a>
                     <a href="{% url 'visitor_delete' visitor.id %}" class="btn btn-sm btn-danger">Delete</a>
                 </div>
 
             </div>
-
-            <div class="card shadow my-3 p-5">
-                <h3>Comments:</h3>
-                No comments yet! Be the first one.
-            </div>
-
-            <div class="card shadow my-3 p-5">
-                <!-- <h3>Add new comment:</h3> -->
-                <form method="post">
-                    {% csrf_token %}
-                    <table>
-                        {{ form.as_table }}
-                    </table>
-                    <button type="text" class="btn btn-primary">Add a New visitor</button>
-                </form>
-            </div>
         </div>
         <div class="col-3">
 
             <div class="card my-4">
-                <h5 class="card-header">About</h5>
+                <h5 class="card-header">Glory Global Solution</h5>
                 <div class="card-body">
-                    <p class="card-text">We love python and django. So we created a blog site to share our
-                        thoughts</p>
+                    <p class="card-text">Confidence Enabled</p>
                     <a href="#" class="btn btn-sm btn-danger">
                         More...
                     </a>

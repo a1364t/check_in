@@ -22,7 +22,7 @@ visitor List
                 <tbody>
                     {% if visitors_list %}
                     {% for visitor in visitors_list %}
-                    {% ifchanged visitor.datetime_checkin.date %}
+                    {% ifchanged visitor.datetime_checkin|date:"Y-m-d" %}
                     <tr>
                         <td colspan="6"
                             style="border: 1px solid black; padding: 8px; text-align: left; background-color: lightgray; font-weight: bold;">
@@ -35,9 +35,9 @@ visitor List
                         <td style="border: 1px solid black; padding: 8px; text-align: left;">{{ visitor.family }}</td>
                         <td style="border: 1px solid black; padding: 8px; text-align: left;">{{ visitor.mobile }}</td>
                         <td style="border: 1px solid black; padding: 8px; text-align: left;">
-                            {{visitor.datetime_checkin|date:"H:i:s" }}</td>
+                            {{visitor.datetime_checkin|date:"Y-m-d, H:i:s" }}</td>
                         <td style="border: 1px solid black; padding: 8px; text-align: left;">
-                            {{visitor.datetime_checkout|date:"H:i:s" }}</td>
+                            {{visitor.datetime_checkout|date:"Y-m-d, H:i:s" }}</td>
                     </tr>
                     {% empty %}
                     <tr>

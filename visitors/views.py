@@ -18,7 +18,7 @@ class VisitorListView(generic.ListView):
 
 class AllVisitotrListView(LoginRequiredMixin, generic.ListView):
     model = Visitor
-    paginate_by = 5
+    paginate_by = 10
     template_name = 'visitors/all_visitors_list.html'
     context_object_name = 'visitors_list'
 
@@ -26,9 +26,8 @@ class AllVisitotrListView(LoginRequiredMixin, generic.ListView):
         obj = self.get_object()
         return obj.user == self.request.user
 
-
-def get_queryset(self):
-    return Visitor.objects.all().order_by('-datetime_checkin')
+    def get_queryset(self):
+        return Visitor.objects.all().order_by('-datetime_checkin')
 
 
 class VisitorDetailView(generic.DetailView):

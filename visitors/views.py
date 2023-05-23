@@ -18,6 +18,7 @@ class VisitorListView(generic.ListView):
 
 class AllVisitotrListView(LoginRequiredMixin, generic.ListView):
     model = Visitor
+    paginate_by = 5
     template_name = 'visitors/all_visitors_list.html'
     context_object_name = 'visitors_list'
 

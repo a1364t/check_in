@@ -9,4 +9,5 @@ urlpatterns = [
     path('<int:pk>/update/', views.VisitorUpdateView.as_view(),
          name='visitor_update'),
     path('<int:pk>/delete', views.VisitorDeleteView.as_view(), name='visitor_delete'),
+    path('visitors/', views.AllVisitotrListView.as_view(), name='all_visitors'),
 ]

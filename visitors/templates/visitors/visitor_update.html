@@ -1,7 +1,7 @@
 {% extends '_base.html' %}
 
 {% block page_title %}
-visitor Detail
+Add New Visitor
 {% endblock page_title %}
 
 {% block content %}
@@ -9,19 +9,19 @@ visitor Detail
     <div class="row">
         <div class="col-9">
             <div class="card shadow my-3 p-5">
-                <h3>{{ visitor.name }} {{ visitor.family }}</h3>
-                <p class="mt-2"></p>
-                <div>
-                    <a href="{% url 'visitor_update' visitor.id %}" class="btn btn-sm btn-info">Check-Out</a>
-                    {% if user.is_authenticated %}
-                    <a href="{% url 'visitor_delete' visitor.id %}" class="btn btn-sm btn-danger">Delete</a>
-                    {% endif %}
-                </div>
-
+                <h3>{{ visitor.name }}, are you sure to check-out?</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div style="display: none;">
+                        <table>
+                            {{ form.as_table }}
+                        </table>
+                    </div>
+                    <button type="submit" class="btn btn-info">Yes</button>
+                </form>
             </div>
         </div>
         <div class="col-3">
-
             <div class="card my-4">
                 <h5 class="card-header">Glory Global Solution</h5>
                 <div class="card-body">
@@ -31,7 +31,6 @@ visitor Detail
                     </a>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

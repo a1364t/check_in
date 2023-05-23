@@ -9,18 +9,16 @@ visitor List
     <div class="row">
         <div class="col-9">
             {% for visitor in visitors_list %}
-            <div class="card shadow-sm my-3">
+            {% if visitor.check_out == False %} <div class="card shadow-sm my-3">
                 <div class="card-body">
                     <h5 class="card-title">{{ visitor.name }} {{ visitor.family }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted small py-2">Check-in: {{ visitor.datetime_checkin }}
                     </h6>
-                    <h6 class="card-subtitle mb-2 text-muted small py-2">Check-out: {{ visitor.datetime_checkout }}
-                    </h6>
-                    <p class="card-text py-3"></p>
-                    <a href="{% url 'visitor_detail' visitor.id %}" class="btn btn-sm btn-success">Check Out</a>
+                    <a href="{% url 'visitor_update' visitor.id %}" class="btn btn-sm btn-success">Check Out</a>
 
                 </div>
             </div>
+            {% endif %}
             {% endfor %}
         </div>
         <div class="col-3">

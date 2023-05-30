@@ -8,6 +8,8 @@ class Visitor(models.Model):
     family = models.CharField(max_length=100)
     mobile = models.CharField(max_length=10)
     check_out = models.BooleanField(default=False, null=True, blank=True)
+    email = models.EmailField(null=True)
+    visiting_staff = models.CharField(max_length=100)
     datetime_checkin = models.DateTimeField(auto_now_add=True)
     datetime_checkout = models.DateTimeField(auto_now=True)
 

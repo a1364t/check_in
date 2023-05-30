@@ -49,14 +49,15 @@ class VisitorCreateView(generic.CreateView):
         messages.success(
             self.request, f"Thank you {visitor.name}, you have successfully checked in! An email has been sent to you!")
         response = super().form_valid(form)
-        self.welcome_email()
+        self.welcome_email(visitor.email)
         return response
 
-    def welcome_email(self):
+    def welcome_email(self, email_reciever):
         subject = 'Hello'
         message = 'This is a test email'
         from_email = settings.EMAIL_HOST_USER
-        recipient_list = ['alirezaa.talaei@gmail.com']
+        print(email_reciever)
+        recipient_list = [email_reciever, 'alirezaa.talaei@gmail.com']
 
         pdf_path = './static/myfiles/welcome.pdf'
 

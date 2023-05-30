@@ -33,6 +33,8 @@ All Visitor List
                         <th style="border: 1px solid black; padding: 8px; text-align: left;">Name</th>
                         <th style="border: 1px solid black; padding: 8px; text-align: left;">Family</th>
                         <th style="border: 1px solid black; padding: 8px; text-align: left;">Mobile</th>
+                        <th style="border: 1px solid black; padding: 8px; text-align: left;">Email</th>
+                        <th style="border: 1px solid black; padding: 8px; text-align: left;">Who Visit?</th>
                         <th style="border: 1px solid black; padding: 8px; text-align: left;">Check-In</th>
                         <th style="border: 1px solid black; padding: 8px; text-align: left;">Check-Out</th>
                         <th style="border: 1px solid black; padding: 8px; text-align: left;">Check Out?</th>
@@ -43,7 +45,7 @@ All Visitor List
                     {% for visitor in visitors_list %}
                     {% ifchanged visitor.datetime_checkin|date:"Y-m-d" %}
                     <tr>
-                        <td colspan="7"
+                        <td colspan="9"
                             style="border: 1px solid black; padding: 8px; text-align: left; background-color: lightgray; font-weight: bold;">
                             {{ visitor.datetime_checkin|date:"Y-m-d" }}</td>
                     </tr>
@@ -53,6 +55,9 @@ All Visitor List
                         <td style="border: 1px solid black; padding: 8px; text-align: left;">{{ visitor.name }}</td>
                         <td style="border: 1px solid black; padding: 8px; text-align: left;">{{ visitor.family }}</td>
                         <td style="border: 1px solid black; padding: 8px; text-align: left;">{{ visitor.mobile }}</td>
+                        <td style="border: 1px solid black; padding: 8px; text-align: left;">{{ visitor.email }}</td>
+                        <td style="border: 1px solid black; padding: 8px; text-align: left;">{{ visitor.visiting_staff}}
+                        </td>
                         <td style="border: 1px solid black; padding: 8px; text-align: left;">
                             {{visitor.datetime_checkin|date:"Y-m-d, H:i:s" }}</td>
                         {% if visitor.check_out %}

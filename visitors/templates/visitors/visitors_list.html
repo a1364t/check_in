@@ -1,12 +1,20 @@
 {% extends '_base.html' %}
 
 {% block page_title %}
-visitor List
+Visitor List
 {% endblock page_title %}
 
 {% block content %}
 <div class="container mt-4">
     <div class="row">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <p{% if message.tags %} class="alert alert-info" {% endif %}>{{ message }}</p>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
         <div class="col-9">
             {% for visitor in visitors_list %}
             {% if visitor.check_out == False %} <div class="card shadow-sm my-3">
@@ -27,7 +35,7 @@ visitor List
                 <h5 class="card-header">Glory Global Solution</h5>
                 <div class="card-body">
                     <p class="card-text">Confidence Enabled</p>
-                    <a href="#" class="btn btn-sm btn-danger">
+                    <a href="#" class="btn btn-sm btn-secondary">
                         More...
                     </a>
                 </div>

@@ -56,8 +56,7 @@ class VisitorCreateView(generic.CreateView):
         subject = 'Hello'
         message = 'This is a test email'
         from_email = settings.EMAIL_HOST_USER
-        print(email_reciever)
-        recipient_list = [email_reciever, 'alirezaa.talaei@gmail.com']
+        recipient_list = [email_reciever]
 
         pdf_path = './static/myfiles/welcome.pdf'
 

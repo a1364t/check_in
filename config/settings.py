@@ -27,7 +27,6 @@ if os.path.isfile(dotenv_file):
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['SECRET_KEY']
-# SECRET_KEY = 'django-insecure-lx0u%_)@h#ddjcj4_h=23p+&i!=j!%02s@4=p(%se9m3w!*m)^'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -143,5 +142,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'alirezatala961@gmail.com'
-EMAIL_HOST_PASSWORD = 'hutqxitaiqpwnsrp'
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']

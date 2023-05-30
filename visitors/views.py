@@ -1,7 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from django.contrib import messages
+from django.core.mail import EmailMessage
+from django.conf import settings
 
 from .models import Visitor
 from .forms import VisitorForm
@@ -42,6 +44,27 @@ class VisitorCreateView(generic.CreateView):
     template_name = 'visitors/visitor_create.html'
     success_url = reverse_lazy('visitors_list')
 
+    def form_valid(self, form):
+        visitor = form.save()
+        messages.success(
+            self.request, f"Thank you {visitor.name}, you have successfully checked in! An email has been sent to you!")
+        response = super().form_valid(form)
+        self.welcome_email()
+        return response
+
+    def welcome_email(self):
+        subject = 'Hello'
+        message = 'This is a test email'
+        from_email = settings.EMAIL_HOST_USER
+        recipient_list = ['alirezaa.talaei@gmail.com']
+
+        pdf_path = './static/myfiles/welcome.pdf'
+
+        email = EmailMessage(subject, message, from_email, recipient_list)
+        with open(pdf_path, 'rb') as file:
+            email.attach('welcome.pdf', file.read(), 'application/pdf')
+        email.send()
+
 
 class VisitorUpdateView(generic.UpdateView):
     model = Visitor
@@ -52,6 +75,9 @@ class VisitorUpdateView(generic.UpdateView):
     def form_valid(self, form):
         visitor = form.save(commit=False)
         visitor.check_out = True
+
+        messages.success(
+            self.request, f"Thank you {visitor.name} for visiting!")
 
         return super().form_valid(form)
 

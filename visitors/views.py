@@ -58,11 +58,15 @@ class VisitorCreateView(generic.CreateView):
         from_email = settings.EMAIL_HOST_USER
         recipient_list = [email_reciever]
 
-        pdf_path = './static/myfiles/welcome.pdf'
+        pdf_path = ['./static/myfiles/welcome.pdf',
+                    './static/myfiles/welcome2.pdf',
+                    './static/myfiles/welcome3.pdf']
 
         email = EmailMessage(subject, message, from_email, recipient_list)
-        with open(pdf_path, 'rb') as file:
-            email.attach('welcome.pdf', file.read(), 'application/pdf')
+        for pdf in pdf_path:
+            with open(pdf, 'rb') as file:
+                file_name = pdf.split('/')[-1]
+                email.attach(file_name, file.read(), 'application/pdf')
         email.send()
 
 

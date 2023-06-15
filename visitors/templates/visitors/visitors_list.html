@@ -20,8 +20,8 @@ Visitor List
             {% if visitor.check_out == False %} <div class="card shadow-sm my-3">
                 <div class="card-body">
                     <h5 class="card-title">{{ visitor.name }} {{ visitor.family }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted small py-2">Check-in: {{ visitor.datetime_checkin }}
-                    </h6>
+                    <h6 class="card-subtitle mb-2 text-muted small py-2">Check-in: {{ visitor.datetime_checkin|timesince }}
+                    ago</h6>
                     <a href="{% url 'visitor_update' visitor.id %}" class="btn btn-sm btn-success">Check Out</a>
 
                 </div>

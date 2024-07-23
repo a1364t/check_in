@@ -35,7 +35,7 @@ source env/bin/activate   # On Windows use `env\Scripts\activate`
     ```bash
     pip install -r requirements.txt
 
-4.Apply the migration:
+4. Apply the migration:
     ```bash
     python manage.py migrate
 

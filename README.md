@@ -38,8 +38,9 @@ source env/bin/activate   # On Windows use `env\Scripts\activate`
 4.Apply the migration:
     ```bash
     python manage.py migrate
-    
+
 5. Run development server:
+    ```bash
     python manage.py runserver
 
 6. Create a super user to access the admin pannel

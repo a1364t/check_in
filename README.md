@@ -34,9 +34,11 @@ source env/bin/activate   # On Windows use `env\Scripts\activate`
 3. Install the dependencies:
     ```bash
     pip install -r requirements.txt
+
 4.Apply the migration:
     ```bash
     python manage.py migrate
+    
 5. Run development server:
     python manage.py runserver
 

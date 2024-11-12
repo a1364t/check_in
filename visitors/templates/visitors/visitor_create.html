@@ -1,36 +1,30 @@
-{% extends '_base.html' %}
-
-{% block page_title %}
-Add a New Visitor
-{% endblock page_title %}
-
-{% block content %}
+{% extends '_base.html' %} {% block page_title %} 
+Add a New Visitor 
+{% endblock page_title %} {% block content %}
 <div class="container mt-4">
-    <div class="row">
-        <div class="col-9">
-            <div class="card shadow my-3 p-5">
-                <h3>Please Enter Your Detail</h3>
-                <form method="POST">
-                    {% csrf_token %}
-                    <table>
-                        {{ form.as_table }}
-                    </table>
-                    <br />
-                    <button type="submit" class="btn btn-primary">Check-In</button>
-                </form>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="card my-4">
-                <h5 class="card-header">Glory Global Solution</h5>
-                <div class="card-body">
-                    <p class="card-text">Confidence Enabled</p>
-                    <a href="#" class="btn btn-sm btn-secondary">
-                        More...
-                    </a>
-                </div>
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-9">
+      <div class="card shadow my-3 p-5">
+        <h3>Please Enter Your Detail</h3>
+        <form method="POST">
+          {% csrf_token %}
+          <table>
+            {{ form.as_table }}
+          </table>
+          <br />
+          <button type="submit" class="btn btn-primary">Check-In</button>
+        </form>
+      </div>
     </div>
+    <div class="col-3">
+      <div class="card my-4">
+        <h5 class="card-header">Company Name</h5>
+        <div class="card-body">
+          <p class="card-text">Confidence Empowered</p>
+          <a href="#" class="btn btn-sm btn-secondary"> More... </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock content %}

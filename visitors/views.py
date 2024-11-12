@@ -49,20 +49,20 @@ class VisitorCreateView(generic.CreateView):
         messages.success(
             self.request, f"Thank you {visitor.name}, you have successfully checked in! An email has been sent to you!")
         response = super().form_valid(form)
-        self.welcome_email(visitor.email)
+        self.welcome_email(visitor)
         return response
 
-    def welcome_email(self, email_reciever):
-        subject = 'Hello'
-        message = 'This is a test email'
+    def welcome_email(self, visitor):
+        subject = 'Welcome to company'
+        message = f"Hello {visitor.name}, \n  {visitor.visiting_staff} will be with you shortly. \n Thank you!"
         from_email = settings.EMAIL_HOST_USER
-        recipient_list = [email_reciever]
+        recipient_list = [visitor.email]
 
         pdf_path = ['./static/myfiles/welcome.pdf',
                     './static/myfiles/welcome2.pdf',
                     './static/myfiles/welcome3.pdf']
 
-        email = EmailMessage(subject, message, from_email, recipient_list)
+        email = EmailMessage(subject, message, from_email, recipient_list,)
         for pdf in pdf_path:
             with open(pdf, 'rb') as file:
                 file_name = pdf.split('/')[-1]
